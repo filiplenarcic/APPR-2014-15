@@ -2,7 +2,6 @@
 
 Avtor: Filip Lenarčič
 
-
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2014/15.
 
 ## Tematika
