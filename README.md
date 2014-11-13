@@ -15,7 +15,7 @@ Analiza bo torej pokazala, v katerih regijah je največ podjetij oziroma novonas
  
 Cilj projekta je s programom RStudio analizirati podatke iz poslovanja slovenskih podjetij ter spoznati osnovne veščine programiranja v R-u. 
 
-Podatke za moj projekt bom dobil iz spletne strani Statističnega urada Republike Slovenije. http://pxweb.stat.si/pxweb/Database/Ekonomsko/Ekonomsko.asp 
+Podatke za moj projekt bom dobil iz spletne strani Statističnega urada Republike Slovenije. Podatki so zbrani v oblikah .txt, .csv, .xls, .htlm. http://pxweb.stat.si/pxweb/Database/Ekonomsko/Ekonomsko.asp 
 
 ## Program
 
