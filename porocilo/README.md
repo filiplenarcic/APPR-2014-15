@@ -13,5 +13,7 @@ Cilj projekta je s programom RStudio analizirati podatke iz poslovanja slovenski
 
 Podatke za moj projekt bom dobil iz spletne strani Statističnega urada Republike Slovenije. Podatki so zbrani v oblikah .txt, .csv, .xls, .htlm. http://pxweb.stat.si/pxweb/Database/Ekonomsko/Ekonomsko.asp 
 
+
+
 2. FAZA PROJEKTA:
 
