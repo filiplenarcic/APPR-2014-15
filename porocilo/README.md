@@ -1,6 +1,6 @@
 # Poročilo
 
-1. FAZA PROJEKTA:
+1.FAZA PROJEKTA:
 
 V mojem projektu bom analiziral poslovanje podjetij kot del posameznih gospodarskih enot. Podjetja v posameznih dejavnostih bom razvrstil po velikosti glede na število zaposlenih in na obseg prihodkov od prodaje, pri tem pa bom analiziral število teh podjetij po dejavnosti, prihodku od prodaje, številu zaposlenih, nabavi blaga in storitev, ter ugotavljal v katerih dejavnostih omenjeni ekonomski kazalci prevladujejo.
 
@@ -15,5 +15,5 @@ Podatke za moj projekt bom dobil iz spletne strani Statističnega urada Republik
 
 
 
-2. FAZA PROJEKTA:
+2.FAZA PROJEKTA:
 
