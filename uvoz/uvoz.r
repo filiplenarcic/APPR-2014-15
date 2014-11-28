@@ -27,7 +27,22 @@ uvozi1 <- function(){
          col.names = c("Dejavnost", "Regija", "Prihodki od prodaje (1000 EUR) 08", "Prihodki od prodaje (1000 EUR) 09", "Prihodki od prodaje (1000 EUR) 10", "Prihodki od prodaje (1000 EUR) 11", "Prihodki od prodaje (1000 EUR) 12", 
                        "Plače (1000 EUR) 08", "Plače (1000 EUR) 09" "Plače (1000 EUR) 10", "Plače (1000 EUR) 11", "Plače (1000 EUR) 12", 
                        "Zaposleni 08", "Zaposleni 09", "Zaposleni 10", "Zaposleni 11", "Zaposleni 12"), 
-         fileEncoding = "Windows-1250"
+         fileEncoding = "Windows-1250"))
 }
 cat("Uvažam podatke o kohezijskih regijah podjetij po dejavnosti...\n")
-podjetjaRegija <- uvozi1()
+regije <- uvozi1()
+
+#tabela 2
+
+uvozi2 <- function(){
+  return(read.csv("podatki/tabela2.csv", header = FALSE sep = ";", as.is = TRUE, 
+                  row.names = 1), na.strings = "NA",
+         col.names = c("Dejavnosti", "Število podjetij 08", "Število podjetij 09", "Število podjetij 10", "Število podjetij 11", "Število podjetij 12", 
+                       "Prihodki od prodaje (1000 EUR) 08", "Prihodki od prodaje (1000 EUR) 09", "Prihodki od prodaje (1000 EUR) 10", "Prihodki od prodaje (1000 EUR) 11", "Prihodki od prodaje (1000 EUR) 12", 
+                       "Plače (1000 EUR) 08", "Plače (1000 EUR) 09", "Plače (1000 EUR) 10", "Plače (1000 EUR) 11", "Plače (1000 EUR) 12", 
+                       "Zaposleni 08", "Zaposleni 09", "Zaposleni 10", "Zaposleni 11", "Zaposleni 12"),
+         skip = 3,  na.strings = "NA", fileEncoding = "Windows-1250"))
+         
+}
+cat("Uvažam podatke o podjetjih po dejavnosti...\n")
+dejavnosti <- uvozi2()
