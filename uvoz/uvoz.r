@@ -22,7 +22,7 @@ druzine <- uvoziDruzine()
 # #tabela 1
 
 uvozi1 <- function(){
-  return(read.csv("podatki/tabela.csv",sep = ";", as.is = TRUE, na.strings = "NA", skip = 3,
+  return(read.csv("podatki/tabela.csv",sep = ";", as.is = TRUE, skip = 3,
                   col.names = c("Dejavnost", "Regija", "Prihodki od prodaje (1000 EUR) 08", "Prihodki od prodaje (1000 EUR) 09", "Prihodki od prodaje (1000 EUR) 10", "Prihodki od prodaje (1000 EUR) 11", "Prihodki od prodaje (1000 EUR) 12",
                   "Plače (1000 EUR) 08", "Plače (1000 EUR) 09", "Plače (1000 EUR) 10", "Plače (1000 EUR) 11", "Plače (1000 EUR) 12", 
                   "Zaposleni 08", "Zaposleni 09", "Zaposleni 10", "Zaposleni 11", "Zaposleni 12"), 
@@ -45,4 +45,15 @@ uvozi2 <- function(){
          
 }
 cat("Uvažam podatke o podjetjih po dejavnosti...\n")
-dejavnosti <- uvozi2()
+dejavnosti <- uvoz
+
+#tabela3
+
+uvozi3 <- function(){
+  return(read.csv("podatki/MLB2.csv", sep = ";", header = TRUE, as.is =TRUE,
+                  row.names=1,
+                  fileEncoding = "Windows-1250"
+                   ))
+}
+cat("Uvažam podatke o igralcih lige MLB...\n")
+MLB <- uvozi3()
