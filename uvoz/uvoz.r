@@ -25,9 +25,8 @@ tabela1 <- function(){
   return(read.csv("podatki/NHLekipe.csv", sep = ";",
                   header = TRUE,
                   as.is = TRUE,
-                  
                   fileEncoding = "Windows-1250"))
-                  
+  
 }
 cat("Uvažam podatke o ekipah lige NHL...\n")
 ekipe <- tabela1()
@@ -35,23 +34,29 @@ ekipe <- tabela1()
 #TABELA 2
 
 tabela2 <- function(){
-  return(read.csv("podatki/leaders.csv", sep = ";",
+  return(read.csv("podatki/CHI.csv", sep = ";",
                   header = TRUE,
                   as.is = TRUE,
-                  row.names = 1,
                   fileEncoding = "Windows-1250"))
 }
 cat("Uvažam podatke o igralcih...\n")
 igralci <- tabela2()
 
-#TABELA 3
 
-tabela3 <- function(){
-  return(read.csv("podatki/PIT.csv", sep = ";",
-                  header = TRUE,
-                  as.is = TRUE,
-                  row.names = 1,
-                  fileEncoding = "Windows-1250"))
-}
-cat("Uvažam podatke o igralcih ekipe PIT...\n")
-pit <- tabela3()
+attach(igralci)
+kategorije <- c("Vrhunski strelec", "Dober strelec", "Povprečen strelec", "Slab strelec")
+naziv <- character(nrow(igralci))
+naziv[G >= 25]<- "Vrhunski strelec"
+naziv[G >=15 & G <25]<- "Dober strelec"
+naziv[G >= 5 & G < 15]<- "Povprečen strelec"
+naziv[G < 5]<- "Slab strelec"
+Naziv <- factor(naziv, levels = kategorije, ordered = TRUE)
+detach(igralci)
+dodatenstolpec <- data.frame(Naziv)
+CHI <- merge(igralci, dodatenstolpec, by = 0, all = TRUE)
+CHI <- CHI[-1]
+rownames(CHI) <- NULL
+
+View(CHI)
+
+
