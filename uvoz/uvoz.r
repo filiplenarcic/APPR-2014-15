@@ -58,7 +58,6 @@ dodatenstolpec <- data.frame(Naziv)
 CHI <- merge(igralci, dodatenstolpec, by = 0, all = TRUE)
 CHI <- CHI[-1]
 rownames(CHI) <- NULL
-
 View(CHI)
 
 
