@@ -6,16 +6,10 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2014/15.
 
 ## Tematika
 
-V mojem projektu bom analiziral poslovanje podjetij kot del posameznih gospodarskih enot. Podjetja v posameznih dejavnostih bom razvrstil po velikosti glede na število zaposlenih in na obseg prihodkov od prodaje, pri tem pa bom analiziral število teh podjetij po dejavnosti, prihodku od prodaje, številu zaposlenih, nabavi blaga in storitev, ter ugotavljal v katerih dejavnostih omenjeni ekonomski kazalci prevladujejo.
+V mojem projektu bom analiziral statistiko klubov severno-ameriške hokejske lige NHL.  Primerjal bom število strelov, ki jih je imela določena ekipa v odvisnosti od števila zadetkov in tako ugotovil katera ekipa je najučinkovitejša v napadu ter tudi v obrambi. Prav tako bom analiziral igralce ekipe Chicago Blackhawks ter jih razvrstil v kategorije na podlagi tega ali je strelec vrhunski, dober, povprečen ali slab (urejenostna spremenljivka).  Učinkovitost igralcev ekipe Chicaga bom ugotovil na podlagi golov, asistenc in točk, ki jih je določen igralec dosegel v odvisnosti od števila odigranih tekem. V analizo bom vklučil tudi pozicijo na kateri igralci igrajo in na podlagi določene skupine igralcev razvrščene glede na pozicijo analiziral uspešnost njihove igre skozi sezono.
 
-Analiziral bom tudi osnovne kazalce demografije podjetij po kohezijskih in statističnih regijah. Pri tem bom upošteval podjetja s sedežem na vzhodu ali zahodu Slovenije ter primerjal število le teh, število novonastalih podjetij in njihovo povprečno velikost ter število podjetij, ki so nehala poslovati. Po potrebi bodo v primerjavo vklučena tudi podjetja največjih slovenskih mest.
-Analiziral bom tudi hitrorastoča podjetja, gazele ter srednjerastoča podjetja ter njihovo število v posameznih regijah glede na prihodek. 
+Cilj projekta je s programom RStudio analizirati podatke klubov in igralcev severno-ameriške hokejske lige NHL ter spoznati osnovne veščine programiranja v R-u. Podatke za moj projekt bom dobil na spletni strani NHL-ja (http://www.nhl.com/ice/teamstats.htm).
 
-Analiza bo torej pokazala, v katerih regijah je največ podjetij oziroma novonastalih podjetih, v katerih največ podjetij s prenehanjem poslovanja ter v katerih dejavnostih poslujejo podjetja z največjimi prihodki od prodaje.  
- 
-Cilj projekta je s programom RStudio analizirati podatke iz poslovanja slovenskih podjetij ter spoznati osnovne veščine programiranja v R-u. 
-
-Podatke za moj projekt bom dobil iz spletne strani Statističnega urada Republike Slovenije. Podatki so zbrani v oblikah .txt, .csv, .xls, .htlm. http://pxweb.stat.si/pxweb/Database/Ekonomsko/Ekonomsko.asp 
 
 ## Program
 
