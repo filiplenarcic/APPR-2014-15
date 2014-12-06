@@ -25,7 +25,7 @@ tabela1 <- function(){
   return(read.csv("podatki/NHLekipe.csv", sep = ";",
                   header = TRUE,
                   as.is = TRUE,
-                  row.names = 1,
+                  
                   fileEncoding = "Windows-1250"))
                   
 }
