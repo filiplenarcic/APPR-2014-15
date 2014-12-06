@@ -43,6 +43,8 @@ cat("Uvažam podatke o igralcih...\n")
 igralci <- tabela2()
 
 
+#Dodajanje urejenostne spremenljivke
+
 attach(igralci)
 kategorije <- c("Vrhunski strelec", "Dober strelec", "Povprečen strelec", "Slab strelec")
 naziv <- character(nrow(igralci))
