@@ -10,7 +10,8 @@ Cilj projekta je s programom RStudio analizirati podatke klubov in igralcev seve
 
 2.FAZA PROJEKTA:
 
-V drugi fazi projekta sem uvozil podatke o igralcih in ekipah lige NHL, ki sem jih pridobil na uradni spletni strani lige NHL. Uvozil sem dve tabeli, ena zajema statistične podatke o igralcih, druga pa o ekipah. Na podlagi teh podatkov sem izdelal tri grafe.
+V drugi fazi projekta sem uvozil podatke o igralcih in ekipah lige NHL. Uvozil sem dve tabeli, ena zajema statistične podatke o igralcih, druga pa o ekipah. V tabeli igralcev sem tudi dodal nov stolpec z urejenostno spremenljivko in igralce razporedil v kategorije Vrhunski strelec, Dober strelec, Povprečen strelec in Slab strelelc. Na podlagi vseh teh podatkov sem izdelal tri grafe. Prvi graf prikazuje število zmag, ki so jih dosegli vsi klubi. Iz grafa je razvidno, katere ekipe so imele uspešno sezono in katere ne. Pri drugem grafu sem primerjal povprečno število golov, ki so jih dosegle ekipe. Primerjal sem deset ekip lige. Pri tretjem grafu pa sem se osredotočil na ekipo iz Chicaga ter analiziral število doseženih golov vsakega posameznika. Podatke sem pridobi liz spletne strani http://www.nhl.com/ice/teamstats.htm.
+
 V naslednji fazi sledi podrobna analiza doslej zbranih podatkov.
 
 3.FAZA PROJEKTA
