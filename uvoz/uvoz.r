@@ -31,6 +31,10 @@ tabela1 <- function(){
 }
 cat("Uvažam podatke o ekipah lige NHL...\n")
 ekipe <- tabela1()
+colnames(ekipe) <- c("GP", "W", "L", "OT", "P", "ROW", "HROW", "RROW", "P%", "G/GP",
+  "GA/GP", "5-5 F/A", "PP%", "PK%", "S/GP", "SA/GP", "Sc 1%",
+  "Tr 1st%", "Ld 1%", "Ld 2%", "OS%", "OSB%", "FO%")
+
 
 #TABELA 2
 
@@ -43,6 +47,9 @@ tabela2 <- function(){
 }
 cat("Uvažam podatke o igralcih...\n")
 igralci <- tabela2()
+colnames(igralci) <- c("Team", "Pos", "GP", "G", "A", "P", "+/-", "PIM",
+                       "PPG", "PPP", "SHG", "SHP", "GW", "OT",
+                       "S", "S%", "TOI/GP", "Shift/GP", "FO%")
 
 
 #Dodajanje urejenostne spremenljivke
