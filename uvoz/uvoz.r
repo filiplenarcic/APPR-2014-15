@@ -23,6 +23,7 @@
 
 tabela1 <- function(){
   return(read.csv("podatki/NHLekipe.csv", sep = ";",
+                  row.names = 1,
                   header = TRUE,
                   as.is = TRUE,
                   fileEncoding = "Windows-1250"))
@@ -35,6 +36,7 @@ ekipe <- tabela1()
 
 tabela2 <- function(){
   return(read.csv("podatki/CHI.csv", sep = ";",
+                  row.names = 1,
                   header = TRUE,
                   as.is = TRUE,
                   fileEncoding = "Windows-1250"))
@@ -54,10 +56,6 @@ naziv[G >= 5 & G < 15]<- "Povprečen strelec"
 naziv[G < 5]<- "Slab strelec"
 Naziv <- factor(naziv, levels = kategorije, ordered = TRUE)
 detach(igralci)
-dodatenstolpec <- data.frame(Naziv)
-CHI <- merge(igralci, dodatenstolpec, by = 0, all = TRUE)
-CHI <- CHI[-1]
-rownames(CHI) <- NULL
-View(CHI)
+CHI <- data.frame(igralci, Naziv)
 
 
