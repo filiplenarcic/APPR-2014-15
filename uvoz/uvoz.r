@@ -51,9 +51,9 @@ attach(igralci)
 kategorije <- c("Vrhunski strelec", "Dober strelec", "Povprečen strelec", "Slab strelec")
 naziv <- character(nrow(igralci))
 naziv[G >= 25]<- "Vrhunski strelec"
-naziv[G >=15 & G <25]<- "Dober strelec"
-naziv[G >= 5 & G < 15]<- "Povprečen strelec"
-naziv[G < 5]<- "Slab strelec"
+naziv[G >=13 & G <25]<- "Dober strelec"
+naziv[G >= 4 & G < 13]<- "Povprečen strelec"
+naziv[G < 4]<- "Slab strelec"
 Naziv <- factor(naziv, levels = kategorije, ordered = TRUE)
 detach(igralci)
 CHI <- data.frame(igralci, Naziv)
