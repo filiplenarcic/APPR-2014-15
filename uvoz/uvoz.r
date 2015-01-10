@@ -47,7 +47,7 @@ tabela2 <- function(){
 }
 cat("Uvažam podatke o igralcih...\n")
 igralci <- tabela2()
-colnames(igralci) <- c("Team", "Pos", "GP", "G", "A", "P", "+/-", "PIM",
+colnames(igralci) <- c("Coutry", "Birth City", "Team", "Pos", "GP", "G", "A", "P", "+/-", "PIM",
                        "PPG", "PPP", "SHG", "SHP", "GW", "OT",
                        "S", "S%", "TOI/GP", "Shift/GP", "FO%")
 
@@ -64,5 +64,97 @@ naziv[G < 4]<- "Slab strelec"
 Naziv <- factor(naziv, levels = kategorije, ordered = TRUE)
 detach(igralci)
 CHI <- data.frame(igralci, Naziv)
+
+# TABELA ameriških mest, ki gostijo tekme lige NHL in njihove koordinate.
+
+tabela3 <- function(){
+  return(read.csv("podatki/NHLcities.csv", sep = ",",
+                  
+                  header = TRUE,
+                  as.is = TRUE,
+                  fileEncoding = "Windows-1250"))
+}
+cat("Uvažam podatke o koordinatah mest...\n")
+NHLcities <- tabela3()
+
+# TABELA s podatki zveznih držav (samo USA)
+
+tabela4 <- function(){
+  return(read.csv("podatki/NHLstate.csv", sep = ",",
+                  
+                  header = TRUE,
+                  as.is = TRUE,
+                  fileEncoding = "Windows-1250"))
+}
+cat("Uvažam podatke o NHL states...\n")
+NHLstates <- tabela4()
+
+
+
+uvozi <- function() {
+  return(read.table("podatki/nationality.csv", sep = ";", as.is = TRUE, header=TRUE,
+                    na.strings="-", row.names=1,
+                    fileEncoding = "Windows-1250"))
+  
+}
+
+# Zapišimo podatke v razpredelnico.
+cat("Uvažam podatke o številu igralcev po nacionalnosti...\n")
+nacionalnost <- uvozi()
+
+
+uscap <- function() {
+  return(read.table("podatki/uscapitals.csv", sep = ",", as.is = TRUE, header=TRUE,
+                    row.names=1,
+                    fileEncoding = "Windows-1250"))
+  
+}
+
+# Zapišimo podatke v razpredelnico.
+cat("Uvažam podatke o številu glavnih mestih ameriških zveznih držav...\n")
+uscapitals <- uscap()
+
+attach(uscapitals)
+kategorije <- c("Pacific", "Central", "Atlantic", "Metropolitan")
+naziv <- character(nrow(uscapitals))
+naziv[rownames(uscapitals)=="California"]<- "Pacific"
+naziv[rownames(uscapitals)=="Arizona"]<- "Pacific"
+naziv[rownames(uscapitals)=="Illinois"]<- "Central"
+naziv[rownames(uscapitals)=="Colorado"]<- "Central"
+naziv[rownames(uscapitals)=="Texas"]<- "Central"
+naziv[rownames(uscapitals)=="Minnesota"]<- "Central"
+naziv[rownames(uscapitals)=="Tennessee"]<- "Central"
+naziv[rownames(uscapitals)=="Missouri"]<- "Central"
+naziv[rownames(uscapitals)=="Massachusetts"]<- "Atlantic"
+naziv[rownames(uscapitals)=="Michigan"]<- "Atlantic"
+naziv[rownames(uscapitals)=="Florida"]<- "Atlantic"
+naziv[rownames(uscapitals)=="North Carolina"]<- "Metropolitan"
+naziv[rownames(uscapitals)=="Ohio"]<- "Metropolitan"
+naziv[rownames(uscapitals)=="New York"]<- "Metropolitan"
+naziv[rownames(uscapitals)=="North Carolina"]<- "Metropolitan"
+naziv[rownames(uscapitals)=="Pennsylvania"]<- "Metropolitan"
+naziv[rownames(uscapitals)=="North Carolina"]<- "Metropolitan"
+naziv[rownames(uscapitals)=="District of Columbia"]<- "Metropolitan"
+
+
+
+State <- factor(naziv, levels = kategorije, ordered = TRUE)
+detach(uscapitals)
+capitals <- data.frame(uscapitals, State)
+
+
+
+######################################################################
+
+goals <- function() {
+  return(read.table("podatki/goals.csv", sep = ";", as.is = TRUE, header=TRUE,
+                    row.names=1,
+                    fileEncoding = "Windows-1250"))
+  
+}
+
+# Zapišimo podatke v razpredelnico.
+cat("Uvažam podatke...\n")
+goal <- goals()
 
 
