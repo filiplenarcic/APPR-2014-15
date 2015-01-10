@@ -100,7 +100,7 @@ koordinate <- coordinates(NHLcities[c("long", "lat")])
 imena <- as.character(NHLcities$city)
 rownames(koordinate) <- imena
 names(imena) <- imena
-koordinate["New York City",1] <- koordinate["New York City",1]+2 #levo,desno
+koordinate["New York City",1] <- koordinate["New York City",1] + 1.5
 koordinate["Los Angeles",2] <- koordinate["Los Angeles",2]+1.7
 koordinate["Los Angeles",1] <- koordinate["Los Angeles",1]+0.7
 koordinate["Anaheim",1] <- koordinate["Anaheim",1]+1.4
@@ -117,13 +117,15 @@ koordinate["Chicago",2] <- koordinate["Chicago",2]+0.1
 koordinate["Chicago",1] <- koordinate["Chicago",1]-1.2
 koordinate["Detroit",2] <- koordinate["Detroit",2]+1.2
 koordinate["Detroit",1] <- koordinate["Detroit",1]-1.7
-koordinate["Boston",1] <- koordinate["Boston",1] + 1.3
-koordinate["Boston",2] <- koordinate["Boston",2] + 0.8
-
-koordinate["Pittsburgh",2] <- koordinate["Pittsburgh",2] + 0.6
+koordinate["Boston",1] <- koordinate["Boston",1] + 2.8
+koordinate["Boston",2] <- koordinate["Boston",2] + 1.4
+koordinate["Washington",1] <- koordinate["Washington",1] -1.7
+koordinate["Philadelphia",1] <- koordinate["Philadelphia",1] + 2.3
+koordinate["Pittsburgh",2] <- koordinate["Pittsburgh",2] + 1.5
 koordinate["Pittsburgh",1] <- koordinate["Pittsburgh",1] + 1.5
 koordinate["Buffalo",2] <- koordinate["Buffalo",2] + 0.3
-koordinate["Buffalo",1] <- koordinate["Buffalo",1] + 1
+koordinate["Buffalo",1] <- koordinate["Buffalo",1] + 1.5
+
 text(koordinate,labels=imena, cex=0.6, pos = 1, offset = 0.2, col = "black")
 title("Zvezne države lige NHL po divizijah")
 legend("bottomleft",
