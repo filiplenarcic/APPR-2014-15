@@ -15,3 +15,6 @@ V drugi fazi projekta sem uvozil podatke o igralcih in ekipah lige NHL. Uvozil s
 V naslednji fazi sledi podrobna analiza doslej zbranih podatkov.
 
 3.FAZA PROJEKTA
+
+Poročilo tretje faze se nahaja v latex datoteki.
+Poročilo
