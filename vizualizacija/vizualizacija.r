@@ -170,7 +170,7 @@ svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthd
 
 nocemo <- c("Antarctica")
 svet <- svet[!(svet$continent %in% nocemo),]
-
+title("Razširjenost igralcev lige NHL")
 m <- match(svet$name_long, rownames(nacionalnost))
 razsirjenost <- nacionalnost[m,1]
 n <- 10
