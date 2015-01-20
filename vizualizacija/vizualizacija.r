@@ -75,18 +75,24 @@ usastates$NAME_1 <- factor(usastates$NAME_1)
 
 cat("PDF...\n")
 
-pdf("slike/divizije.pdf",paper="a4")
+pdf("slike/divizije.pdf")
+# plot(usastates, 
+#      col = ifelse(capitals[as.character(usastates$NAME_1),
+#                            "State"] == "Pacific", "lightsteelblue2", 
+#                   ifelse(capitals[as.character(usastates$NAME_1),
+#                                   "State"] == "Central", "thistle2",
+#                          ifelse(capitals[as.character(usastates$NAME_1),
+#                                          "State"] == "Atlantic", "lightgoldenrod1",
+#                                 ifelse(capitals[as.character(usastates$NAME_1),
+#                                                 "State"] == "Metropolitan", "lightcyan1", "white")))))
+
+barve.divizije <- c("Pacific" = "lightsteelblue2",
+                    "Central" = "thistle2",
+                    "Atlantic" = "lightgoldenrod1",
+                    "Metropolitan" = "lightcyan1")
 plot(usastates, 
-     col = ifelse(capitals[as.character(usastates$NAME_1),
-                           "State"] == "Pacific", "lightsteelblue2", 
-                  ifelse(capitals[as.character(usastates$NAME_1),
-                                  "State"] == "Central", "thistle2",
-                         ifelse(capitals[as.character(usastates$NAME_1),
-                                         "State"] == "Atlantic", "lightgoldenrod1",
-                                ifelse(capitals[as.character(usastates$NAME_1),
-                                                "State"] == "Metropolitan", "lightcyan1", "white")))))
-
-
+     col = barve.divizije[capitals[as.character(usastates$NAME_1),
+                                   "State"]], border = "grey")
 
 
 losangeles <- NHLcities$city =="Los Angeles"
@@ -137,6 +143,9 @@ legend("bottomleft",
 
 dev.off()
 
+
+
+
 # Zemljevid ZDA - primerjava uspešnosti zveznih držav v ligi NHL
 goal <- preuredi(goal,usastates)
 usastates$GPG <- goal$GPG
@@ -162,7 +171,7 @@ dev.off()
 
 
 # Zemljevid sveta in razširjenost igralcev po svetu
-pdf("slike/svet.pdf",paper="a4")
+pdf("slike/svet.pdf")
 cat("Uvažam zemljevid 2...\n")
 svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip",
                         "svet", "ne_110m_admin_0_countries.shp", mapa = "zemljevid",
@@ -176,7 +185,8 @@ razsirjenost <- nacionalnost[m,1]
 n <- 10
 q <- quantile(razsirjenost, (1:n)/n, na.rm = TRUE)
 barve <- heat.colors(n)[n:1]
-plot(svet, col = barve[sapply(razsirjenost, function(x) which(x <= q)[1])])
+plot(svet, main = "Število igralcev lige NHL razvrščenih po narodnosti",
+     col = barve[sapply(razsirjenost, function(x) which(x <= q)[1])])
 dev.off()
 
 
