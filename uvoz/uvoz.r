@@ -49,7 +49,7 @@ cat("Uvažam podatke o igralcih...\n")
 igralci <- tabela2()
 colnames(igralci) <- c("Coutry", "Birth City", "Team", "Pos", "GP", "G", "A", "P", "+/-", "PIM",
                        "PPG", "PPP", "SHG", "SHP", "GW", "OT",
-                       "S", "S%", "TOI/GP", "Shift/GP", "FO%")
+                       "S", "FO%", "TOI/GP")
 
 
 #Dodajanje urejenostne spremenljivke
@@ -157,4 +157,30 @@ goals <- function() {
 cat("Uvažam podatke...\n")
 goal <- goals()
 
+##################################################################################
+salary_uvoz <- function() {
+  return(read.table("podatki/place.csv", sep = ";", as.is = TRUE, header=TRUE,
+                    fileEncoding = "Windows-1250"))
+  
+}
 
+# Zapišimo podatke v razpredelnico.
+cat("Uvažam podatke...\n")
+salary <- salary_uvoz()
+
+
+########################################################
+
+tabela2ekipe <- function(){
+  return(read.csv("podatki/NHLekipe2.csv", sep = ";",
+                  row.names = 1,
+                  header = TRUE,
+                  as.is = TRUE,
+                  fileEncoding = "Windows-1250"))
+  
+}
+cat("Uvažam podatke o ekipah lige NHL...\n")
+ekipe2 <- tabela2ekipe()
+colnames(ekipe2) <- c("GP", "W", "OT", "P", "ROW", "HROW", "RROW", "P%", "G/GP",
+                     "5-5 F/A", "PP%", "PK%", "S/GP", "Sc 1%",
+                     "Tr 1st%", "OS%", "OSB%", "FO%")

@@ -22,6 +22,55 @@ Cilj projekta je s programom RStudio analizirati podatke klubov in igralcev seve
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
+Tabele vsebujejo sledeče podatke:
+
+\textbf{Tabela ekipe} (v CSV obliki) vsebuje podatke:
+\begin{enumerate}
+\item{\verb|število odigranih tekem| (številska spremenljivka),}
+\item{\verb|zmage| (številska spremenljivka),}
+\item{\verb|porazi| (številska spremenljivka),}
+\item{\verb|porazi po podaljšku| (številska spremenljivka),}
+\item{\verb|število točk v sezoni| (številska spremenljivka),}
+\item{\verb|število golov na tekmo| (številska spremenljivka),}
+\item{\verb|število prejetih golov na tekmo| (številska spremenljivka),}
+\item{\verb|odstotek izkoriščenih power-play priložnosti| (številska spremenljivka),}
+\item{\verb|število strelov na tekmo| (številska spremenljivka),}
+\item{\verb|odstotek pridobljenih bulijev| (številska spremenljivka),}
+\item{\verb|število prejetih strelov| (številska spremenljivka),}
+\item{\verb|delež zmag ob prvem vodstvu| (številska spremenljivka),}
+\item{\verb|delež zmag ob prvem zaostanku| (številska spremenljivka),}
+\item{\verb|regulacija| (številska spremenljivka),}
+\item{\verb|ime kluba| (imenska spremenljivka),}
+\end{enumerate}
+
+
+\textbf{Tabela CHI} (v CSV obliki) vsebuje podatke:
+\begin{enumerate}
+
+\item{\verb|ime igralca| (imenska spremenljivka),}
+\item{\verb|narodnost| (imenska spremenljivka),}
+\item{\verb|rojstni kraj| (imenska spremenljivka),}
+\item{\verb|ime ekipe| (imenska spremenljivka),}
+\item{\verb|pozicija| (imenska spremenljivka),}
+\item{\verb|naziv strelca| (urejenostna spremenljivka),}
+\item{\verb|št. odigranih tekem| (številska spremenljivka),}
+\item{\verb|goli| (številska spremenljivka),}
+\item{\verb|asistence| (številska spremenljivka),}
+\item{\verb|točke| (številska spremenljivka),}
+\item{\verb|+/-| (številska spremenljivka),}
+\item{\verb|power-play goli| (številska spremenljivka),}
+\item{\verb|power-play točke| (številska spremenljivka),}
+\item{\verb|short-handed goli| (številska spremenljivka),}
+\item{\verb|short-handed goli| (številska spremenljivka),}
+\item{\verb|število zmagovitih zadetkov| (številska spremenljivka),}
+\item{\verb|število strelov| (številska spremenljivka),}
+\item{\verb|odstotek zadetih strelov| (številska spremenljivka),}
+\item{\verb|število odigranih minut| (številska spremenljivka),}
+\item{\verb|povprečje zamenjav na tekmo| (številska spremenljivka),}
+\item{\verb|delež osvojenih bulijev| (številska spremenljivka),}
+
+\end{enumerate}
+
 V drugi fazi projekta sem uvozil dve tabeli v csv obliki. Ena izmed njiju zajema statistične podatke o igralcih, druga pa o ekipah. V tabeli igralcev sem tudi dodal nov stolpec z urejenostno spremenljivko in igralce razporedil v kategorije Vrhunski strelec, Dober strelec, Povprečen strelec in Slab strelelc. Na podlagi teh podatkov sem izdelal štiri grafe. Prvi graf prikazuje število zmag, ki so jih dosegli vsi klubi. Iz grafa je razvidno, katere ekipe so imele uspešno sezono in katere ne. Pri drugem grafu sem primerjal odstotek izkoriščenih Power-play priložnosti med desetimi ekipami lige. Tretji graf prikazuje povprečno število golov na tekmo, pri tem pa so bile v graf vklučene vse ekipe. Pri četrtem grafu pa sem se osredotočil na ekipo iz Chicaga ter analiziral število doseženih golov vsakega posameznika. Podatke sem pridobil iz spletne strani \url{http://www.nhl.com/ice/teamstats.htm}. Vsi moji grafi so zbrani na nekaj naslednjih straneh.
 
 
@@ -48,6 +97,59 @@ Vsi moji že zgoraj opisani zemljevidi se nahajajo tukaj.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/svet.pdf}
+}
+Zemljevid prikazuje kako številčna je določena narodnost igralcev v ligi NHL.
+Temnejši odtenki držav sveta prikazujejo večjo številčnost igralcev iz le teh, medtem ko svetlejši odtenki prikazujejo manjšo številčnost. 
+
+
+
+\pagebreak
+\section{Napredna analiza}
+
+V zadnji, četrti fazi, sem se odločil napovedati rast plač igralcev. Pri tem sem analiziral plače igralcev lige MLB. Zanimal me je predvsem trend naraščanja plač, saj se plače izpred nekaj desetletji precej razlikujejo od zdajšnjih. Posledica tega je predvsem vse večje zanimanje za baseball v ZDA, televizijske pravice, oglaševanje, marketing. Skupni imenovalec vsega naštetega pa je predvsem tržna naravnanost tega športa. Liga MLB se je razvila v več kot le šport, pravzaprav v velik posel, ki temu primerno tudi nagrajuje igralce te lige. Za analizo plač sem se odločil izbrati povprečno letno plačo igralca v ligi vse od leta 1989 naprej.
+
+V zadnji fazi projekta sem želel na podlagi hierarhičnega razvrščanja ugotoviti, kateri igralci v klubu Chicago so najučinkovitejši glede na vse statistične spremenljivke, ki jih imam podane v tabeli. Željene rezultate sem pridobil z metodo ward in metodo enojnega povezovanja oziroma metodo single.
+
+Pri napovedovanju plač sem uvozil tabelo, ki prikazuje povprečne plače igralcev v klubu od 1989 naprej. Podatke sem sem dobil na spletni strani \url{http://www.cbssports.com/mlb/salaries/avgsalaries} in \url{http://www.usatoday.com/sports/mlb/salaries/1988/team/all/}.
+Za napovedovanje mojih podatkov  sem sestavil tri modele, kvadratni, linearni in gam model. Nato sem izračunal odstopanja napovedanih vrednosti od dejanskih, torej preračunane vsote kvadratov razdalj od napovedanih do dejanskih vrednosti. Model z manjšo vsoto kvadratov se podatkom boljše prilega. Linearni izračun vrne vrednost 0.44273517, izračun za kvadratni model vrne vrednost 0.44272328, gam model pa vrednost 0.06716553. Iz tega sledi, da se gam model najbolje prilega mojim podatkom.
+
+\makebox[\textwidth][c]{
+\includegraphics{../slike/place.pdf}
+}
+
+Pri napovedovanju podatkov me je zanimala rast plač v naslednjih petnajstih letih. Zaradi boljše preglednosti sem graf razširil do leta 2040. Z uporabo funkcije predict sem napisal novo funkcijo, ki napoveduje podatke v odvisnosti od modela, torej linearni ali kvadratni. Nato sem na podlagi tega napovedal rast plač za naslednji dve desetletji po kvadratnem in linearnem modelu. Iz grafa, ki prikazuje napoved plač lahko vidimo, da plače naraščajo relativno linearno in v letu 2030 lahko pričakujemo povprečno letno plačo, ki bo znašala slabih šest milijonov dolarjev.
+
+\makebox[\textwidth][c]{
+\includegraphics{../slike/napoved.pdf}
+}
+ 
+Odločil sem se narisati dendrogram in želel raziskati, kako se NHL ekipe grupirajo po skupinah glede na učinkovitost. Tabelo \verb|ekipe| sem preoblikoval tako, da sem v novi tabeli \verb|ekipe2| ohranil le vrednosti pri katerih večja vrednost je tudi boljša. Nato sem svoje podatke normaliziral in ekipe razvrstil v tri skupine 1, 2 in 3 glede uspešnosti.
+
+\makebox[\textwidth][c]{
+\includegraphics{../slike/hierarhija.pdf}
+}
+
+Zgornji graf prikazuje dendrogram, kjer so ekipe razvrščene po skupinah, pri čemer skupina 1 prikazuje najboljše ekipe lige. Skupina 2 grupira ekipe, ki niso bile tako uspešne in so zasedale slabše položaje na lestvici. Skupina 3 pa prikazuje ekipe, ki so bile povprečne v sezoni in so bile razvrščene na sredino razpredelnice.
+
+V nadaljni analizi sem želel poiskati najboljše igralce ekipe Chicago Blackhawks glede na vse statistične spremenljivke, torej najučinkovitejše igralce v sezoni 2013/14. Poiskal sem jih z hierarhičnim razvrščanjem v skupine. Najprej sem podatke iz tabele CHI normaliziral. Nato sem s funkcijo dist() dobil matriko razdalj. Razdelitev pa sem nato opravil z metodo complete in dobil dendrogram. Igralce sem razvrstil v štiri skupine.
+
+\makebox[\textwidth][c]{
+\includegraphics{../slike/najigralci.pdf}
+}
+
+Dendrogram prikazuje razdelitev igralcev Chicaga v štiri skupine, razdeljeni pa so na uspešnost v sezoni 2013/14. Vidimo lahko, da sta najboljša igralca Kane in Sharp v drugi skupini dendrograma. Sedaj pa sem se odločil še preveriti ali sta res najboljša na podlagi vseh spremenljivk, ki jih proučujem. Podatke sem dobil z grafi parov.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/najigralci1.pdf}
+}
+
+Iz zgornjega grafa lahko opazimo da, sta modra krogca, ki prikazujeta Kane-a in Sharpa, osamelca in sta posledično res najboljša igralca, ki se ločita od ostalih v klubu.
+}
+
+Nato sem naredil še dendrogram z metodo enojnega povezovanja in na tak način ugotovil, kateri igralci sledijo Kane-u in Sharpu na lestvici najboljših igralcev v klubu. Ponovno sem naredil hierarhično razporeditev v štiri skupine. Dobil sem naslednji dendrogram. Vidimo lahko, da sta najboljša igralca Sharp in Kane, ki zastopata prvi dve skupini. V tretji skupini pa jima sledita Hossa in Toews. 
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/chicago.pdf}
 }
 
 \end{document}

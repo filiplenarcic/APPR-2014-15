@@ -45,9 +45,12 @@ source("lib/uvozi.zemljevid.r")
 # Uvozimo zemljevid.
 cat("Uvažam zemljevid...\n")
 
-USA <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
-                       "USA", "USA_adm1.shp", mapa = "zemljevid",
-                       encoding = "Windows-1250")
+USA <- uvozi.zemljevid("http://audrey.fmf.uni-lj.si/states_21basic.zip",
+                       "USA", "states.shp", mapa = "zemljevid")
+
+# USA <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
+#                        "USA", "USA_adm1.shp", mapa = "zemljevid",
+#                        encoding = "Windows-1250")
 
 # Funkcija, ki podatke preuredi glede na vrstni red v zemljevidu
 preuredi <- function(podatki, zemljevid) {
@@ -70,8 +73,8 @@ preuredi <- function(podatki, zemljevid) {
 # Ker se podatki, ki jih bomo uporabljali nanašajo le na sklenjen del ZDA bomo ostala ozemlja Združenih držav na zemljevidu zanemarili.
 
 nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
-usastates <- USA[!(USA$NAME_1 %in% nocemo),]
-usastates$NAME_1 <- factor(usastates$NAME_1)
+usastates <- USA[!(USA$STATE_NAME %in% nocemo),]
+usastates$NAME_1 <- factor(usastates$STATE_NAME)
 
 cat("PDF...\n")
 
@@ -182,11 +185,18 @@ svet <- svet[!(svet$continent %in% nocemo),]
 
 m <- match(svet$name_long, rownames(nacionalnost))
 razsirjenost <- nacionalnost[m,1]
-n <- 10
+n <- 4
 q <- quantile(razsirjenost, (1:n)/n, na.rm = TRUE)
 barve <- heat.colors(n)[n:1]
-plot(svet, main = "Število igralcev lige NHL razvrščenih po narodnosti",
+plot(svet, border = "dimgray", main = "Število igralcev lige NHL razvrščenih po narodnosti",
      col = barve[sapply(razsirjenost, function(x) which(x <= q)[1])])
+legend("bottomleft",
+       legend=c("Visok", "Srednje visok", "Nizek", "Zelo nizek"), 
+       col=c("#FFFF80FF","#FFFF00FF","#FF8000FF","#FF0000FF"),
+       lty = c("solid", "solid", "solid", "solid"),
+       lwd = c(10, 10, 10, 10),
+       bg = "white",
+       title="Legenda - Delež vseh igralcev lige v posamezni državi")
 dev.off()
 
 
