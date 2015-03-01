@@ -45,7 +45,7 @@ source("lib/uvozi.zemljevid.r")
 # Uvozimo zemljevid.
 cat("Uvažam zemljevid...\n")
 
-USA <- uvozi.zemljevid("http://audrey.fmf.uni-lj.si/states_21basic.zip",
+USA <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/states_21basic.zip",
                        "USA", "states.shp", mapa = "zemljevid")
 
 # USA <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
