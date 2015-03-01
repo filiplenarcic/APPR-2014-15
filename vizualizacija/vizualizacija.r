@@ -191,12 +191,12 @@ barve <- heat.colors(n)[n:1]
 plot(svet, border = "dimgray", main = "Število igralcev lige NHL razvrščenih po narodnosti",
      col = barve[sapply(razsirjenost, function(x) which(x <= q)[1])])
 legend("bottomleft",
-       legend=c("Visok", "Srednje visok", "Nizek", "Zelo nizek"), 
+       legend=c("Zelo nizek", "Nizek", "Srednje visok", "Visok"), 
        col=c("#FFFF80FF","#FFFF00FF","#FF8000FF","#FF0000FF"),
        lty = c("solid", "solid", "solid", "solid"),
        lwd = c(10, 10, 10, 10),
        bg = "white",
-       title="Legenda - Delež vseh igralcev lige v posamezni državi")
+       title="Legenda - Delež igralcev lige v posamezni državi")
 dev.off()
 
 
