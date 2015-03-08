@@ -10,7 +10,7 @@ ekipe2 <- ekipe[order(ekipe$PPperc, decreasing=TRUE),]
 barplot(ekipe2[1:10,13], names.arg = rownames(ekipe2)[1:10], col = rainbow(55), las = 2, xlim=c(0,13),
         ylab="Power-play percentage", 
         main = "Odtstotek izkoriščenih Power-play priložnosti", 
-        cex.names = 0.8, ylim = c(0, 25))
+        cex.names = 0.6, ylim = c(0, 25))
 
 #graf 3
 ekipe3 <- ekipe[order(ekipe$GGP, decreasing=TRUE),]
@@ -19,7 +19,6 @@ barplot(ekipe3[,10], names.arg = rownames(ekipe3), col = "blue", las = 2, xlim=c
         cex.names = 0.5, ylim = c(0, 3.5))
 
 #graf 4
-priimki <- gsub("^.* ", "", rownames(igralci))
 igralci <- igralci[order(igralci$G, decreasing=TRUE),]
 barplot(igralci$G, main = "Število zadetkov igralcev Chicaga (2013/14)", 
         names.arg = priimki,
