@@ -69,8 +69,8 @@ place <- salary$AVERAGE.SALARY/1000000
 
 plot(leto, place, xlab = "Leto", ylab = "Plače v mio $", main = "Linearna, kvadratna in gam metoda")
 
-legend(2000, 1, c("Linerana metoda", "Kvadratna metoda", "Gam metoda"), lty=c(1,1), 
-       col = c("blue","red", "green"))
+legend(2000, 1, c("Linerana metoda", "Gam metoda"), lty=c(1,1), 
+       col = c("blue", "green"))
 
 #Napišemo funkcijo za linearno rast
 
@@ -80,7 +80,7 @@ abline(linearna, col="blue")
 #Preverimo če so plače kvadratna funkcija
 
 kvadratna <- lm(place ~ I(leto^2) + leto)
-curve(predict(kvadratna, data.frame(leto=x)), add = TRUE, col = "red")  
+# curve(predict(kvadratna, data.frame(leto=x)), add = TRUE, col = "red")  
 
 #Loess model za primerjavo (model loess uporablja lokalno prilagajanje)
 
@@ -123,14 +123,14 @@ abline(v=2040, col = "lightblue2", lty = 1)
 napoved <- function(x,model){predict(model, data.frame(leto=x))}
 
 curve(napoved(x, linearna), add= TRUE, lwd = 1.5, col = "blue")
-curve(napoved(x, kvadratna), add = TRUE, lwd = 1.5, col = "red")
+# curve(napoved(x, kvadratna), add = TRUE, lwd = 1.5, col = "red")
 curve(napoved(x, gam), add=TRUE, col="green")
 #curve(napoved(x, loess), add = TRUE, lwd = 1.5, col = "black")
 
 
 # Legenda
-legend(2015, 3, c("Linearna", "Kvadratna", "Gam"),
-       lty=c(1,1), col = c("blue","red", "green"))
+legend(2015, 3, c("Linearna", "Gam"),
+       lty=c(1,1), col = c("blue", "green"))
 
 dev.off()
 
