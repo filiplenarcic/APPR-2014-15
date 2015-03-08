@@ -20,6 +20,7 @@ barplot(ekipe3[,10], names.arg = rownames(ekipe3), col = "blue", las = 2, xlim=c
 
 #graf 4
 igralci <- igralci[order(igralci$G, decreasing=TRUE),]
+priimki <- gsub("^.* ", "", rownames(igralci))
 barplot(igralci$G, main = "Število zadetkov igralcev Chicaga (2013/14)", 
         names.arg = priimki,
         cex.names = 0.75, las = 2, col = "deepskyblue", ylim = c(0, 35))
